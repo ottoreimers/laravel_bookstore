@@ -1,16 +1,19 @@
 {
   "addons": [
-    "heroku-postgresql"
+      "heroku-postgresql"
   ],
-  "buildpack": [
-    {
-      "url": "heroku/php"
-    }
+  "buildpacks": [
+      {
+          "url": "heroku/php"
+      }
   ],
-  "env": {
-    "APP_NAME": "my-laravel-app",
-    "APP_ENV": "review",
-    "APP_DEBUG": "true",
-    "DB_CONNECTION": "pgsql"
+   "env": {
+      "APP_NAME": "my-laravel-app",
+      "APP_ENV": "review",
+      "APP_DEBUG": "true",
+      "DB_CONNECTION": "pgsql",
+      "APP_KEY": {
+          "generator": "secret"
+      }
   }
 }
