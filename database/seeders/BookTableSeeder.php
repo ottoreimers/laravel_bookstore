@@ -17,7 +17,7 @@ class BookTableSeeder extends Seeder
         Book::create(array(
             'title' => '1984',
             'isbn' => 9745587686,
-            'prive' => 12.50,
+            'price' => 12.50,
             'author_id' => 2
         ));
 
