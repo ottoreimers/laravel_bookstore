@@ -51,8 +51,11 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
+    /*matching heroku*/
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', env('HEROKU_APP_NAME') ? 'https://' . env('HEROKU_APP_NAME') . '.herokuapp.com' : 'http://localhost'),
+
+    // 'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -118,8 +121,9 @@ return [
     | will not be safe. Please do this before deploying an application!
     |
     */
-
-    'key' => env('APP_KEY'),
+    /*matching heroku*/
+    'key' => strpos(env('APP_KEY'), 'base64:') !== false ? env('APP_KEY') : substr(env('APP_KEY'), 0, 32),
+    // 'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
